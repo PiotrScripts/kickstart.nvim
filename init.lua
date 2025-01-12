@@ -192,6 +192,9 @@ vim.keymap.set('t', '<Esc><Esc>', '<C-\\><C-n>', { desc = 'Exit terminal mode' }
 vim.keymap.set({ 'n', 'v' }, 'H', 'Lzz', { desc = 'Move a page down and center' })
 vim.keymap.set({ 'n', 'v' }, 'L', 'Hzz', { desc = 'Move a page up and center' })
 
+-- vim.keymap.set('n', 'j', 'jzz', { desc = 'Move down and center' })
+-- vim.keymap.set('n', 'k', 'kzz', { desc = 'Move up and center' })
+
 vim.keymap.set('i', '<C-h>', '<Left>', { desc = 'Move left' })
 vim.keymap.set('i', '<C-l>', '<Right>', { desc = 'Move right' })
 vim.keymap.set('i', '<C-j>', '<Down>', { desc = 'Move down' })
@@ -840,21 +843,13 @@ require('lazy').setup({
     end,
   },
 
-  { -- You can easily change to a different colorscheme.
-    -- Change the name of the colorscheme plugin below, and then
-    -- change the command in the config to whatever the name of that colorscheme is.
-    --
-    -- If you want to see what colorschemes are already installed, you can use `:Telescope colorscheme`.
-    'blazkowolf/gruber-darker.nvim',
-    priority = 1000, -- Make sure to load this before all the other start plugins.
-    init = function()
-      -- Load the colorscheme here.
-      -- Like many other themes, this one has different styles, and you could load
-      -- any other, such as 'tokyonight-storm', 'tokyonight-moon', or 'tokyonight-day'.
-      vim.cmd.colorscheme 'gruber-darker'
-
-      -- You can configure highlights by doing something like:
-      vim.cmd.hi 'Comment gui=none'
+  -- Themes
+  { 'blazkowolf/gruber-darker.nvim' },
+  {
+    'rose-pine/neovim',
+    name = 'rose-pine',
+    config = function()
+      vim.cmd 'colorscheme rose-pine'
     end,
   },
 
